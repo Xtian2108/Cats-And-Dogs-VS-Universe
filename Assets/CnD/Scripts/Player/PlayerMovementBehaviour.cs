@@ -5,17 +5,10 @@ using UnityEngine;
 
 namespace CnD.Player.Core
 {
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovementBehaviour : MonoBehaviour
     {
-        private int movementSpeed;
         private EnvironmentBoundaries _environmentBoundaries;
-        [SerializeField]private SOActorModel _soActorModel;
-        
-        public int MovementSpeed
-        {
-            get => movementSpeed;
-            set => movementSpeed = value;
-        }
+        private PlayerStats _playerStats;
 
         private void Start()
         {
@@ -29,21 +22,14 @@ namespace CnD.Player.Core
             {
                 _environmentBoundaries.Init();
             }
-            SetStats(_soActorModel);
+            _playerStats = GetComponent<PlayerStats>();
         }
 
         private void FixedUpdate()
         {
             Movement();
         }
-
-        public void SetStats(SOActorModel soActorModel)
-        {
-            movementSpeed = soActorModel.movementSpeed;
-        }
-
         
-
         private void Movement()
         {
             float moveX = 0f;
@@ -86,7 +72,7 @@ namespace CnD.Player.Core
             }
             
             Vector3 moveDir = new Vector3(moveX, moveY).normalized;
-            transform.position += moveDir * movementSpeed * Time.deltaTime;
+            transform.position += moveDir * _playerStats.movementSpeed * Time.deltaTime;
         }
         
     }

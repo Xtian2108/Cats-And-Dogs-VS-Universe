@@ -6,10 +6,13 @@ namespace CnD.ScriptableObjects
     public class SOActorModel : ScriptableObject
     {
         public int movementSpeed;
+        public GameObject shipGO;
+        public GameObject bulletGO;
         public enum ControllerType
         {
             KEYBOARD,
             JOYSTICK
         };
+
     }
 }
