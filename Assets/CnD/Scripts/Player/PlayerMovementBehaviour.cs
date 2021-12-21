@@ -15,7 +15,7 @@ namespace CnD.Player.Core
             Init();
         }
 
-        public void Init()
+        private void Init()
         {
             _environmentBoundaries = FindObjectOfType<EnvironmentBoundaries>();
             if (_environmentBoundaries)
