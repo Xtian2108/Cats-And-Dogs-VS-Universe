@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
+using CnD.Player.Core;
 using CnD.ScriptableObjects;
+using CnD.Scripts.Utilitaries;
 using UnityEngine;
 
-namespace CnD.Player.Core
+namespace CnD.Player.Controller
 {
     public class EnemySpawnerController : MonoBehaviour
     {
         [SerializeField] private SOActorModel _soActorModel;
         [SerializeField][Range(0,10)]private int _quantity;
         [SerializeField][Range(0.1f,2f)]private float _spawnRate;
-        private GameObject _playerShipModel;
-
+        private ObjectPool _enemiesPool;
         private void Start()
         {
             Init();
@@ -19,6 +20,7 @@ namespace CnD.Player.Core
 
         private void Init()
         {
+            _enemiesPool = new ObjectPool(_soActorModel.shipGO,_quantity,transform.parent);
             StartCoroutine(SpawnEnemies(_quantity,_spawnRate));
         }
         
@@ -37,7 +39,8 @@ namespace CnD.Player.Core
 
         private GameObject CreateEnemy()
         {
-            GameObject enemy = Instantiate(_soActorModel.shipGO);
+            GameObject enemy = _enemiesPool.GetObject();
+            enemy.SetActive(true);
             enemy.AddComponent<EnemyStats>();
             enemy.GetComponent<EnemyStats>().SetStats(_soActorModel);
             enemy.AddComponent<EnemyMovementBehaviour>();

@@ -1,4 +1,5 @@
 using System;
+using CnD.Player.Bullet;
 using CnD.Player.Core;
 using CnD.ScriptableObjects;
 using CnD.Scripts.Bullet;

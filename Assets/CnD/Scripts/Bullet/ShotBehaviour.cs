@@ -5,7 +5,7 @@ using CnD.Scripts.Utilitaries;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace CnD.Player.Core
+namespace CnD.Player.Bullet
 {
     public class ShotBehaviour : MonoBehaviour
     {
@@ -35,7 +35,7 @@ namespace CnD.Player.Core
                 bullet.transform.position = _shotPoint.transform.position;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 // GameObject.Instantiate(_soActorModel.bulletGO, _shotPoint.transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
-                bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel,_bulletPool);
+                bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel);
                 bullet.transform.SetParent(transform.parent);
                 bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             }

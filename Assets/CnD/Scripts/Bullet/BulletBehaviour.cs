@@ -8,12 +8,10 @@ namespace CnD.Scripts.Bullet
     public class BulletBehaviour : MonoBehaviour
     {
         private SOBulletModel _soBulletModel;
-        private ObjectPool _bulletPool;
 
-        public void Init(SOBulletModel bulletModel, ObjectPool bulletPool)
+        public void Init(SOBulletModel bulletModel)
         {
             _soBulletModel = bulletModel;
-            _bulletPool = bulletPool;
         }
 
         private void OnBecameInvisible()
