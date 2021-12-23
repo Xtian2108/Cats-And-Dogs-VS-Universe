@@ -8,10 +8,12 @@ namespace CnD.Scripts.Bullet
     public class BulletBehaviour : MonoBehaviour
     {
         private SOBulletModel _soBulletModel;
+        private bool _isEnemy;
 
-        public void Init(SOBulletModel bulletModel)
+        public void Init(SOBulletModel bulletModel, bool isEnemy)
         {
             _soBulletModel = bulletModel;
+            _isEnemy = isEnemy;
         }
 
         private void OnBecameInvisible()
@@ -21,7 +23,14 @@ namespace CnD.Scripts.Bullet
 
         void Update () 
         {
-            transform.position += new Vector3(_soBulletModel.speed,0,0)*Time.deltaTime;	
+            if (!_isEnemy)
+            {
+                transform.position += transform.right * _soBulletModel.speed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position -= transform.right * _soBulletModel.speed * Time.deltaTime;
+            }
         }
 
     }

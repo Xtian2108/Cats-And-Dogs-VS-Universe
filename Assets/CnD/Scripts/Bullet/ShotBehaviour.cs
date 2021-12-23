@@ -43,7 +43,7 @@ namespace CnD.Player.Bullet
                 bullet.SetActive(true);
                 bullet.transform.position = shotPoint.transform.position;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel);
+                bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel,_soActorModel.isEnemy);
                 bullet.transform.SetParent(transform.parent);
                 bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             }
@@ -55,7 +55,7 @@ namespace CnD.Player.Bullet
             bullet.SetActive(true);
             bullet.transform.position = shotPoint.transform.position;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel);
+            bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel,_soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
