@@ -9,6 +9,7 @@ namespace CnD.ScriptableObjects
         public string name;
         public GameObject shipGO;
         public GameObject bulletGO;
+        public bool isEnemy;
 
         [Header("Enemy Stats")] 
         [Range(0.1f,1f)]public float verticalSpeed = 1;

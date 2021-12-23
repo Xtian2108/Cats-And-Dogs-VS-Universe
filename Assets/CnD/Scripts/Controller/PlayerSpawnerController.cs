@@ -28,6 +28,7 @@ namespace CnD.Scripts.Controller
             _playerShipModel.AddComponent<PlayerMovementBehaviour>();
             _playerShipModel.AddComponent<ShotBehaviour>();
             _playerShipModel.GetComponent<ShotBehaviour>().Init(_soActorModel,_soBulletModel);
+            _playerShipModel.GetComponent<ShotBehaviour>().shotPoint = _playerShipModel.transform.Find("ShotPoint").gameObject;
             _playerShipModel.AddComponent<PlayerStats>();
             _playerShipModel.GetComponent<PlayerStats>().SetStats(_soActorModel);
             SetPlayerInWorld(_playerShipModel);

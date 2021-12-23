@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using CnD.Player.Bullet;
 using CnD.Player.Core;
 using CnD.ScriptableObjects;
 using CnD.Scripts.Utilitaries;
@@ -10,6 +11,7 @@ namespace CnD.Player.Controller
     public class EnemySpawnerController : MonoBehaviour
     {
         [SerializeField] private SOActorModel _soActorModel;
+        [SerializeField] private SOBulletModel _soBulletModel;
         [SerializeField][Range(0,10)]private int _quantity;
         [SerializeField][Range(0.1f,2f)]private float _spawnRate;
         private ObjectPool _enemiesPool;
@@ -43,6 +45,12 @@ namespace CnD.Player.Controller
             enemy.SetActive(true);
             enemy.AddComponent<EnemyStats>();
             enemy.GetComponent<EnemyStats>().SetStats(_soActorModel);
+            if (_soActorModel.bulletGO != null)
+            {
+                enemy.AddComponent<ShotBehaviour>();
+                enemy.GetComponent<ShotBehaviour>().Init(_soActorModel,_soBulletModel);
+                enemy.GetComponent<ShotBehaviour>().shotPoint = enemy.transform.Find("ShotPoint").gameObject;
+            }
             enemy.AddComponent<EnemyMovementBehaviour>();
             enemy.GetComponent<EnemyMovementBehaviour>().Init();
             enemy.name = _soActorModel.name;

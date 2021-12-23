@@ -530,5 +530,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soActorModel: {fileID: 11400000, guid: 20071598c264d974e9abb26ad3257848, type: 2}
+  _soBulletModel: {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
   _quantity: 10
   _spawnRate: 1
