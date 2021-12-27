@@ -10,9 +10,9 @@ namespace CnD.Player.Bullet
     public class ShotBehaviour : MonoBehaviour
     {
         public SOActorModel soActorModel;
-        private ObjectPool _bulletPool;
         public SOBulletModel soBulletModel;
         public GameObject shotPoint;
+        private BulletPoolContainer _bulletPoolContainer;
 
         public void OnEnable()
         {
@@ -21,7 +21,11 @@ namespace CnD.Player.Bullet
 
         public void Init()
         {
-            _bulletPool = new ObjectPool(soBulletModel.bulletTypes[soBulletModel.currentType], 60, transform.parent);
+            if (_bulletPoolContainer == null)
+            {
+                _bulletPoolContainer = FindObjectOfType<BulletPoolContainer>();
+            }
+
             if (soActorModel.isEnemy)
             {
                 Debug.Log(gameObject.name);
@@ -43,14 +47,14 @@ namespace CnD.Player.Bullet
 
             if (Input.GetButtonDown("Fire1"))
             {
-                GameObject bullet = _bulletPool.GetObject();
+                GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
                 SetTransformBullet(bullet);
             }
         }
 
         private void EnemyShoot()
         {
-            GameObject bullet = _bulletPool.GetObject();
+            GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
             SetTransformBullet(bullet);
         }
 
