@@ -26,7 +26,6 @@ namespace CnD.Scripts.Controller
         {
             GameObject _playerShipModel = Instantiate(soActorModel.shipGO);
             _playerShipModel.AddComponent<PlayerMovementBehaviour>();
-            _playerShipModel.GetComponent<ShotBehaviour>().shotPoint = _playerShipModel.transform.Find("ShotPoint").gameObject;
             _playerShipModel.AddComponent<PlayerStats>();
             _playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);
             SetPlayerInWorld(_playerShipModel);

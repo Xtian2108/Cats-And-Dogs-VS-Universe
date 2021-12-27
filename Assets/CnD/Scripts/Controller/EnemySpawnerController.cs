@@ -46,10 +46,6 @@ namespace CnD.Player.Controller
             enemy.SetActive(true);
             enemy.AddComponent<EnemyStats>();
             enemy.GetComponent<EnemyStats>().SetStats(_soActorModel);
-            if (TryGetComponent(out ShotBehaviour shotBehaviour))
-            {
-                shotBehaviour.shotPoint = enemy.transform.Find("ShotPoint").gameObject;
-            }
             enemy.AddComponent<EnemyMovementBehaviour>();
             enemy.GetComponent<EnemyMovementBehaviour>().Init();
             enemy.name = _soActorModel.name;
