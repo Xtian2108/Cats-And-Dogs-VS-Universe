@@ -9,22 +9,26 @@ namespace CnD.Player.Bullet
 {
     public class ShotBehaviour : MonoBehaviour
     {
-        [SerializeField] private SOActorModel _soActorModel;
+        public SOActorModel soActorModel;
         private ObjectPool _bulletPool;
-        private SOBulletModel _soBulletModel;
-        [HideInInspector]public GameObject shotPoint;
+        public SOBulletModel soBulletModel;
+        public GameObject shotPoint;
 
-        public void Init(SOActorModel soActorModel, SOBulletModel soBulletModel)
+        public void OnEnable()
         {
-            _soActorModel = soActorModel;
-            _soBulletModel = soBulletModel;
-            _bulletPool = new ObjectPool(_soActorModel.bulletGO,60,transform.parent);
-            if (_soActorModel.isEnemy)
+            Init();
+        }
+
+        public void Init()
+        {
+            _bulletPool = new ObjectPool(soBulletModel.bulletTypes[soBulletModel.currentType], 60, transform.parent);
+            if (soActorModel.isEnemy)
             {
                 Debug.Log(gameObject.name);
-                InvokeRepeating("EnemyShoot",2,2 );
+                InvokeRepeating("EnemyShoot", 2, 2);
             }
         }
+
         public void Update()
         {
             PlayerShoot();
@@ -32,30 +36,30 @@ namespace CnD.Player.Bullet
 
         private void PlayerShoot()
         {
-            if (_soActorModel.isEnemy)
+            if (soActorModel.isEnemy)
             {
                 return;
             }
-            
+
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject bullet = _bulletPool.GetObject();
-                bullet.SetActive(true);
-                bullet.transform.position = shotPoint.transform.position;
-                bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel,_soActorModel.isEnemy);
-                bullet.transform.SetParent(transform.parent);
-                bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+                SetTransformBullet(bullet);
             }
         }
 
         private void EnemyShoot()
         {
             GameObject bullet = _bulletPool.GetObject();
+            SetTransformBullet(bullet);
+        }
+
+        private void SetTransformBullet(GameObject bullet)
+        {
             bullet.SetActive(true);
             bullet.transform.position = shotPoint.transform.position;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(_soBulletModel,_soActorModel.isEnemy);
+            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }

@@ -4,7 +4,7 @@ namespace CnD.Scripts.Environment
 {
     public class EnvironmentBoundaries : MonoBehaviour
     {
-        [HideInInspector]public GameObject[] boundariesPoints = new GameObject[2];
+        public GameObject[] boundariesPoints = new GameObject[2];
         [SerializeField] private float cameraTopOffset;
         [SerializeField] private float cameraBottomOffset;
         [SerializeField] private float cameraLeftOffset;

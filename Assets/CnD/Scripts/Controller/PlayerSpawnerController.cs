@@ -9,8 +9,8 @@ namespace CnD.Scripts.Controller
 {
     public class PlayerSpawnerController : MonoBehaviour
     {
-        [SerializeField]private SOActorModel _soActorModel;
-        [SerializeField]private SOBulletModel _soBulletModel;
+        public SOActorModel soActorModel;
+        [SerializeField]private Transform _spawnPoint;
 
         private void Start()
         {
@@ -24,13 +24,11 @@ namespace CnD.Scripts.Controller
 
         private GameObject CreatePlayer()
         {
-            GameObject _playerShipModel = Instantiate(_soActorModel.shipGO);
+            GameObject _playerShipModel = Instantiate(soActorModel.shipGO);
             _playerShipModel.AddComponent<PlayerMovementBehaviour>();
-            _playerShipModel.AddComponent<ShotBehaviour>();
-            _playerShipModel.GetComponent<ShotBehaviour>().Init(_soActorModel,_soBulletModel);
             _playerShipModel.GetComponent<ShotBehaviour>().shotPoint = _playerShipModel.transform.Find("ShotPoint").gameObject;
             _playerShipModel.AddComponent<PlayerStats>();
-            _playerShipModel.GetComponent<PlayerStats>().SetStats(_soActorModel);
+            _playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);
             SetPlayerInWorld(_playerShipModel);
             return _playerShipModel;
         }
@@ -38,7 +36,7 @@ namespace CnD.Scripts.Controller
 
         private void SetPlayerInWorld(GameObject playerShip)
         {
-            playerShip.transform.position = new Vector3(-7, 0, 40);
+            playerShip.transform.position = _spawnPoint.position;
             playerShip.transform.rotation = Quaternion.Euler(0, 90, 0);
             playerShip.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             playerShip.transform.SetParent(transform);

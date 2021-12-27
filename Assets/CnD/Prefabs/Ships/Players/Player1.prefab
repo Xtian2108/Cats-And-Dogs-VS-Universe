@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057621007421451824}
   - component: {fileID: 3048690366177347068}
   - component: {fileID: 3034940910006608465}
+  - component: {fileID: 6062210612603493041}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -96,6 +97,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.638828, y: 3.256053, z: 10.850529}
   m_Center: {x: 0, y: -0.0000007748604, z: 0}
+--- !u!114 &6062210612603493041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034940910006608462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839a6bed36c549f48ee0691db2e3eb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soActorModel: {fileID: 11400000, guid: f86e33b8ea3b45447aa8753a06cba059, type: 2}
+  soBulletModel: {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
+  shotPoint: {fileID: 7550962879630953784}
 --- !u!1 &7550962879630953784
 GameObject:
   m_ObjectHideFlags: 0
