@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3048690366177347068}
   - component: {fileID: 3034940910006608465}
   - component: {fileID: 6062210612603493041}
+  - component: {fileID: 328925309959699151}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -92,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3034940910006608462}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 13.638828, y: 3.256053, z: 10.850529}
@@ -112,6 +113,22 @@ MonoBehaviour:
   soActorModel: {fileID: 11400000, guid: f86e33b8ea3b45447aa8753a06cba059, type: 2}
   soBulletModel: {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
   shotPoint: {fileID: 7550962879630953784}
+--- !u!54 &328925309959699151
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034940910006608462}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7550962879630953784
 GameObject:
   m_ObjectHideFlags: 0

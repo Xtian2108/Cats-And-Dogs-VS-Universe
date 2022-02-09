@@ -7,10 +7,12 @@ namespace CnD.Player.Core
     {
         internal int movementSpeed;
         internal int shield;
+        internal int maxShield;
         public void SetStats(SOActorModel soActorModel)
         {
             movementSpeed = soActorModel.movementSpeed;
             shield = soActorModel.shield;
+            maxShield = soActorModel.maxShield;
         }
     }
 }

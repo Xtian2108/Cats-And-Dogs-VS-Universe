@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using CnD.Player.Bullet;
 using CnD.Player.Core;
 using CnD.ScriptableObjects;
 using CnD.Scripts.Bullet;
+using CnD.Scripts.Interfaces;
 using CnD.Scripts.PowerUps;
 using UnityEngine;
 
@@ -25,16 +27,17 @@ namespace CnD.Scripts.Controller
 
         private GameObject CreatePlayer()
         {
-            GameObject _playerShipModel = Instantiate(soActorModel.shipGO);
-            _playerShipModel.AddComponent<PlayerMovementBehaviour>();
-            _playerShipModel.AddComponent<PlayerStats>();
-            _playerShipModel.AddComponent<SpaceShipShield>();
-            _playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);
-            _playerShipModel.GetComponent<SpaceShipShield>().Init(soActorModel);
-            SetPlayerInWorld(_playerShipModel);
-            return _playerShipModel;
+            GameObject playerShipModel = Instantiate(soActorModel.shipGO);
+            playerShipModel.AddComponent<PlayerMovementBehaviour>();
+            playerShipModel.AddComponent<PlayerStats>();
+            playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);
+            playerShipModel.AddComponent<SpaceShipShield>();
+            playerShipModel.GetComponent<SpaceShipShield>().Init(soActorModel);
+            playerShipModel.AddComponent<PlayerBehaviour>();
+            playerShipModel.GetComponent<PlayerBehaviour>().Init();
+            SetPlayerInWorld(playerShipModel);
+            return playerShipModel;
         }
-
 
         private void SetPlayerInWorld(GameObject playerShip)
         {

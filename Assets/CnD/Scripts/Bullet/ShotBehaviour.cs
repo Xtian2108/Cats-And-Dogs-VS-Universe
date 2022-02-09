@@ -19,7 +19,7 @@ namespace CnD.Player.Bullet
             Init();
         }
 
-        public void Init()
+        private void Init()
         {
             if (_bulletPoolContainer == null)
             {

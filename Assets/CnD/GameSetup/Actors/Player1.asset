@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  shield: 2
+  maxShield: 5
+  name: 
   shipGO: {fileID: 3034940910006608462, guid: 0cc5b885ed160214db1a3fda53b0c844, type: 3}
-  bulletGO: {fileID: 5732087749462713945, guid: c206c0e6b1b90a34a9e5d9dd0d83e7f4, type: 3}
+  isEnemy: 0
+  verticalSpeed: 1
+  verticalAmplitude: 0.05
