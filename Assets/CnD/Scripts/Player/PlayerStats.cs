@@ -6,9 +6,11 @@ namespace CnD.Player.Core
     public class PlayerStats : MonoBehaviour
     {
         internal int movementSpeed;
+        internal int shield;
         public void SetStats(SOActorModel soActorModel)
         {
             movementSpeed = soActorModel.movementSpeed;
+            shield = soActorModel.shield;
         }
     }
 }

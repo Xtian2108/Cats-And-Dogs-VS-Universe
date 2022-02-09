@@ -1,3 +1,4 @@
+using CnD.ScriptableObjects;
 using CnD.Scripts.Interfaces;
 using UnityEngine;
 
@@ -5,23 +6,24 @@ namespace CnD.Scripts.PowerUps
 {
     public class SpaceShipShield : MonoBehaviour, ISpaceShipElement
     {
-        public int currentShieldHealth;
-        public int maxShield = 5;
-
-        public void Awake()
+        private SOActorModel _actorModel;
+        public int CurrentShield
         {
-            ResetShieldStrength();
+            get => _actorModel.shield;
+            set => _actorModel.shield = value;
+        }
+
+        public int MaxShield => _actorModel.maxShield;
+        
+        public void Init(SOActorModel actorModel)
+        {
+            _actorModel = actorModel;
         }
         
         public float TakeDamage(int damage)
         {
-            currentShieldHealth -= damage;
-            return currentShieldHealth;
-        }
-
-        public void ResetShieldStrength()
-        {
-            currentShieldHealth = maxShield;
+            CurrentShield -= 1;
+            return CurrentShield;
         }
         
         public void Accept(IVisitor visitor)

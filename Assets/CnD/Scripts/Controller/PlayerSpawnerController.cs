@@ -3,6 +3,7 @@ using CnD.Player.Bullet;
 using CnD.Player.Core;
 using CnD.ScriptableObjects;
 using CnD.Scripts.Bullet;
+using CnD.Scripts.PowerUps;
 using UnityEngine;
 
 namespace CnD.Scripts.Controller
@@ -27,7 +28,9 @@ namespace CnD.Scripts.Controller
             GameObject _playerShipModel = Instantiate(soActorModel.shipGO);
             _playerShipModel.AddComponent<PlayerMovementBehaviour>();
             _playerShipModel.AddComponent<PlayerStats>();
+            _playerShipModel.AddComponent<SpaceShipShield>();
             _playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);
+            _playerShipModel.GetComponent<SpaceShipShield>().Init(soActorModel);
             SetPlayerInWorld(_playerShipModel);
             return _playerShipModel;
         }

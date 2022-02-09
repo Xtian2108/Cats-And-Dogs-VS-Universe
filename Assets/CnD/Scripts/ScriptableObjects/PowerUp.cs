@@ -20,11 +20,11 @@ namespace CnD.ScriptableObjects
 
         public void Visit(SpaceShipShield spaceShipShield)
         {
-            var newShieldStrength = spaceShipShield.currentShieldHealth + shieldBoost;
+            var newShieldStrength = spaceShipShield.CurrentShield + shieldBoost;
 
-            spaceShipShield.currentShieldHealth = (newShieldStrength < spaceShipShield.maxShield)
-                ? spaceShipShield.currentShieldHealth = newShieldStrength
-                : spaceShipShield.currentShieldHealth = spaceShipShield.maxShield;
+            spaceShipShield.CurrentShield = (newShieldStrength < spaceShipShield.MaxShield)
+                ? spaceShipShield.CurrentShield = newShieldStrength
+                : spaceShipShield.CurrentShield = spaceShipShield.MaxShield;
         }
     }
 }

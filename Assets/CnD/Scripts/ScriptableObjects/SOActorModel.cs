@@ -6,6 +6,8 @@ namespace CnD.ScriptableObjects
     public class SOActorModel : ScriptableObject
     {
         public int movementSpeed;
+        public int shield;
+        public int maxShield = 5;
         public string name;
         public GameObject shipGO;
         public bool isEnemy;
