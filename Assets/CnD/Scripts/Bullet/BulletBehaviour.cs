@@ -21,7 +21,12 @@ namespace CnD.Scripts.Bullet
             gameObject.SetActive(false);
         }
 
-        void Update () 
+        void Update ()
+        {
+            BulletMovement();
+        }
+
+        private void BulletMovement()
         {
             if (!_isEnemy)
             {
@@ -32,6 +37,5 @@ namespace CnD.Scripts.Bullet
                 transform.position -= transform.right * _soBulletModel.speed * Time.deltaTime;
             }
         }
-
     }
 }

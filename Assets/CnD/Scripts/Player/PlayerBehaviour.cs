@@ -8,7 +8,7 @@ namespace CnD.Player.Core
 {
     public class PlayerBehaviour : MonoBehaviour, ISpaceShipElement
     {
-        private List<ISpaceShipElement> _spaceShipElements = new List<ISpaceShipElement>();
+        private readonly List<ISpaceShipElement> _spaceShipElements = new List<ISpaceShipElement>();
 
         public SpaceShipShield spaceShipShield;
 

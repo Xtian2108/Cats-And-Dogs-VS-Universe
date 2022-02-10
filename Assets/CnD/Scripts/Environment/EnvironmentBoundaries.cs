@@ -34,8 +34,8 @@ namespace CnD.Scripts.Environment
             boundariesPoints[1].transform.position = v2;
             
         }
-        
-        public Bounds OrthographicBounds(Camera camera)
+
+        private Bounds OrthographicBounds(Camera camera)
         {
             float cameraHeight = camera.orthographicSize * 2;
             Bounds bounds = new Bounds(

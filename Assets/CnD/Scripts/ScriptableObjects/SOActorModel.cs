@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CnD.ScriptableObjects
 {
@@ -9,7 +10,8 @@ namespace CnD.ScriptableObjects
         public int shield;
         public int maxShield = 5;
         public string name;
-        public GameObject shipGO;
+        [FormerlySerializedAs("shipGO")]
+        public GameObject ActorGO;
         public bool isEnemy;
 
         [Header("Enemy Stats")] 

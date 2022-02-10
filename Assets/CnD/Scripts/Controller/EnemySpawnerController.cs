@@ -22,7 +22,7 @@ namespace CnD.Player.Controller
 
         private void Init()
         {
-            _enemiesPool = new ObjectPool(_soActorModel.shipGO, _quantity, transform.parent);
+            _enemiesPool = new ObjectPool(_soActorModel.ActorGO, _quantity, transform.parent);
             StartCoroutine(SpawnEnemies(_quantity, _spawnRate));
         }
 

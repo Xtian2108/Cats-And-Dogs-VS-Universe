@@ -5,10 +5,10 @@ using UnityEngine;
 namespace CnD.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "PowerUp", menuName = "PowerUp", order = 0)]
-    public class PowerUp : ScriptableObject , IVisitor
+    public class SOPowerUp : ScriptableObject , IVisitor
     {
         public string powerUpName;
-        public GameObject powerupPrefab;
+        public GameObject powerUpPrefab;
 
         [Tooltip("Heal Shield")]
         public int shieldBoost;

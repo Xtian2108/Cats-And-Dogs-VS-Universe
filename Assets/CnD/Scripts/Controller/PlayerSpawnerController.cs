@@ -27,7 +27,7 @@ namespace CnD.Scripts.Controller
 
         private GameObject CreatePlayer()
         {
-            GameObject playerShipModel = Instantiate(soActorModel.shipGO);
+            GameObject playerShipModel = Instantiate(soActorModel.ActorGO);
             playerShipModel.AddComponent<PlayerMovementBehaviour>();
             playerShipModel.AddComponent<PlayerStats>();
             playerShipModel.GetComponent<PlayerStats>().SetStats(soActorModel);

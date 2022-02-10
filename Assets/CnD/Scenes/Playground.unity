@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9981c0e9b2f41e7ba974281d488f0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpSO: {fileID: 11400000, guid: 2993ffde4b1cea2458b0b5b88c371193, type: 2}
+  soPowerUp: {fileID: 11400000, guid: 2993ffde4b1cea2458b0b5b88c371193, type: 2}
 --- !u!135 &928528463
 SphereCollider:
   m_ObjectHideFlags: 0
