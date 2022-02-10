@@ -114,9 +114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soActorModel: {fileID: 11400000, guid: f86e33b8ea3b45447aa8753a06cba059, type: 2}
   soBulletModel: {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
-  shotPoint: {fileID: 7550962879630953784}
-  shotPoint2: {fileID: 7154169100764453150}
-  shotPoint3: {fileID: 7707808624712727474}
+  amountShotPoint: 1
+  shotPoint:
+  - {fileID: 7550962879630953784}
+  - {fileID: 7154169100764453150}
+  - {fileID: 7707808624712727474}
 --- !u!54 &328925309959699151
 Rigidbody:
   m_ObjectHideFlags: 0

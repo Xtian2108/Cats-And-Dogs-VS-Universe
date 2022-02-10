@@ -11,9 +11,8 @@ namespace CnD.Player.Bullet
     {
         public SOActorModel soActorModel;
         public SOBulletModel soBulletModel;
-        public GameObject shotPoint;
-        public GameObject shotPoint2;
-        public GameObject shotPoint3;
+        public int amountShotPoint = 0;
+        public GameObject[] shotPoint;
         private BulletPoolContainer _bulletPoolContainer;
         public void OnEnable()
         {
@@ -54,12 +53,12 @@ namespace CnD.Player.Bullet
 
             if (Input.GetButtonDown("Fire1"))
             {
-                GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
-                SetTransformBullet(bullet,shotPoint.transform.position);
-                GameObject bullet2 = _bulletPoolContainer.bulletPool.GetObject();
-                SetTransformBullet(bullet2,shotPoint2.transform.position);
-                GameObject bullet3 = _bulletPoolContainer.bulletPool.GetObject();
-                SetTransformBullet(bullet3,shotPoint3.transform.position);
+                for (int i = 0; i < amountShotPoint; i++)
+                {
+                    GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
+                    SetTransformBullet(bullet,shotPoint[i].transform.position);
+                }
+                
             }
         }
 
@@ -70,7 +69,7 @@ namespace CnD.Player.Bullet
                 return;
             }
             GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
-            SetTransformBullet(bullet,shotPoint.transform.position);
+            SetTransformBullet(bullet,shotPoint[0].transform.position);
         }
 
         private void SetTransformBullet(GameObject bullet, Vector3 shotPosition)
