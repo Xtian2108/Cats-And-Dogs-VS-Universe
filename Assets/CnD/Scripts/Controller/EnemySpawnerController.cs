@@ -24,14 +24,13 @@ namespace CnD.Player.Controller
         {
             _enemiesPool = new ObjectPool(_soActorModel.ActorGO, _quantity, transform.parent);
             StartCoroutine(SpawnEnemies(_quantity, _spawnRate));
-        }
 
+        }
         private IEnumerator SpawnEnemies(int quantity, float spawnRate)
         {
             for (int i = 0; i < quantity; i++)
             {
-                GameObject enemy = CreateEnemy();
-                
+                CreateEnemy();
                 yield return new WaitForSeconds(spawnRate);
             }
 
