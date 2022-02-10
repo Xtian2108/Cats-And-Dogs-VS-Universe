@@ -6,6 +6,7 @@ namespace CnD.Player.Core
     public class PlayerStats : MonoBehaviour
     {
         internal int movementSpeed;
+        internal int health;
         internal int shield;
         internal int maxShield;
         public void SetStats(SOActorModel soActorModel)
@@ -13,6 +14,7 @@ namespace CnD.Player.Core
             movementSpeed = soActorModel.movementSpeed;
             shield = soActorModel.shield;
             maxShield = soActorModel.maxShield;
+            health = soActorModel.health;
         }
     }
 }

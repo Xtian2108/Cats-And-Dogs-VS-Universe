@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4421f28674014f81a270bb46f7e2cccb, type: 3}
   m_Name: Player1
   m_EditorClassIdentifier: 
+  health: 500
   movementSpeed: 10
   shield: 2
   maxShield: 5
   name: 
-  shipGO: {fileID: 3034940910006608462, guid: 0cc5b885ed160214db1a3fda53b0c844, type: 3}
+  ActorGO: {fileID: 3034940910006608462, guid: 0cc5b885ed160214db1a3fda53b0c844, type: 3}
   isEnemy: 0
   verticalSpeed: 1
   verticalAmplitude: 0.05

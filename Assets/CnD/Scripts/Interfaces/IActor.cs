@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 namespace CnD.Scripts.Interfaces
 {
     public interface IActor

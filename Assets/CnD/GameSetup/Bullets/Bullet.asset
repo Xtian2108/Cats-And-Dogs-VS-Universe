@@ -17,4 +17,4 @@ MonoBehaviour:
   currentType: 0
   speed: 30
   health: 1
-  hitPower: 5
+  hitPower: 1

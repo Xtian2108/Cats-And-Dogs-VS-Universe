@@ -1,11 +1,12 @@
 using System;
 using CnD.ScriptableObjects;
+using CnD.Scripts.Interfaces;
 using CnD.Scripts.Utilitaries;
 using UnityEngine;
 
 namespace CnD.Scripts.Bullet
 {
-    public class BulletBehaviour : MonoBehaviour
+    public class BulletMovementBehaviour : MonoBehaviour
     {
         private SOBulletModel _soBulletModel;
         private bool _isEnemy;
@@ -24,6 +25,12 @@ namespace CnD.Scripts.Bullet
         void Update ()
         {
             BulletMovement();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            IActor actor = other.GetComponent<IActor>();
+            actor?.TakeDamage(_soBulletModel.hitPower);
         }
 
         private void BulletMovement()

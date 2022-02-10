@@ -31,9 +31,7 @@ namespace CnD.Player.Controller
             for (int i = 0; i < quantity; i++)
             {
                 GameObject enemy = CreateEnemy();
-                enemy.transform.rotation = Quaternion.Euler(0, -90, 0);
-                enemy.gameObject.transform.SetParent(transform);
-                enemy.transform.position = transform.position;
+                
                 yield return new WaitForSeconds(spawnRate);
             }
 
@@ -44,10 +42,19 @@ namespace CnD.Player.Controller
         {
             GameObject enemy = _enemiesPool.GetObject();
             enemy.SetActive(true);
+            enemy.transform.rotation = Quaternion.Euler(0, -90, 0);
+            enemy.gameObject.transform.SetParent(transform);
+            enemy.transform.position = transform.position;
+            if (enemy.GetComponent<EnemyStats>())
+            {
+                return enemy;
+            }
             enemy.AddComponent<EnemyStats>();
             enemy.GetComponent<EnemyStats>().SetStats(_soActorModel);
             enemy.AddComponent<EnemyMovementBehaviour>();
             enemy.GetComponent<EnemyMovementBehaviour>().Init();
+            enemy.AddComponent<EnemyBehaviour>();
+            enemy.GetComponent<EnemyBehaviour>().Init();
             enemy.name = _soActorModel.name;
             return enemy;
         }

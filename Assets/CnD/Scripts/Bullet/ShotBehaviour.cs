@@ -25,10 +25,8 @@ namespace CnD.Player.Bullet
             {
                 _bulletPoolContainer = FindObjectOfType<BulletPoolContainer>();
             }
-
             if (soActorModel.isEnemy)
             {
-                Debug.Log(gameObject.name);
                 InvokeRepeating("EnemyShoot", 2, 2);
             }
         }
@@ -54,6 +52,10 @@ namespace CnD.Player.Bullet
 
         private void EnemyShoot()
         {
+            if (!gameObject.activeSelf)
+            {
+                return;
+            }
             GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
             SetTransformBullet(bullet);
         }
@@ -63,7 +65,7 @@ namespace CnD.Player.Bullet
             bullet.SetActive(true);
             bullet.transform.position = shotPoint.transform.position;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
+            bullet.GetComponent<BulletMovementBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }

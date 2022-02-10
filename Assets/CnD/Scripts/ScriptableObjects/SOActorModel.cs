@@ -6,6 +6,7 @@ namespace CnD.ScriptableObjects
     [CreateAssetMenu(fileName = "Create Actor Model", menuName = "Create Actor")]
     public class SOActorModel : ScriptableObject
     {
+        public int health;
         public int movementSpeed;
         public int shield;
         public int maxShield = 5;
