@@ -11,8 +11,8 @@ namespace CnD.Player.Bullet
     {
         public SOActorModel soActorModel;
         public SOBulletModel soBulletModel;
-        public int amountShotPoint = 0;
-        public GameObject[] shotPoint;
+        private int amountShotPoint = 1;
+        [SerializeField]private GameObject[] shotPoint;
         private BulletPoolContainer _bulletPoolContainer;
         public void OnEnable()
         {
@@ -77,7 +77,7 @@ namespace CnD.Player.Bullet
             bullet.SetActive(true);
             bullet.transform.position = shotPosition;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletMovementBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
+            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }

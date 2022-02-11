@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletTypes:
   - {fileID: 5732087749462713945, guid: c206c0e6b1b90a34a9e5d9dd0d83e7f4, type: 3}
+  - {fileID: 5732087749462713945, guid: 92c5ce119b685c64590e94c8c4103f65, type: 3}
+  - {fileID: 5732087749462713945, guid: 349fb8f491688714d880b3d86be93a01, type: 3}
   currentType: 0
   speed: 30
   health: 1

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CnD.Scripts.Bullet
 {
-    public class BulletMovementBehaviour : MonoBehaviour
+    public class BulletBehaviour : MonoBehaviour
     {
         private SOBulletModel _soBulletModel;
         private bool _isEnemy;
@@ -15,8 +15,15 @@ namespace CnD.Scripts.Bullet
         {
             _soBulletModel = bulletModel;
             _isEnemy = isEnemy;
+            ChangeBulletModel();
         }
 
+        private void ChangeBulletModel()
+        {
+            gameObject.GetComponent<MeshRenderer>().material =
+                _soBulletModel.bulletTypes[_soBulletModel.currentType].GetComponent<MeshRenderer>().sharedMaterials[0];
+        }
+        
         private void OnBecameInvisible()
         {
             gameObject.SetActive(false);

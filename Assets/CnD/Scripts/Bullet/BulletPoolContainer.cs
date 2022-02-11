@@ -9,7 +9,6 @@ namespace CnD.Scripts.Bullet
     {
         public ObjectPool bulletPool;
         public SOBulletModel soBulletModel;
-
         
         public void Awake()
         {
