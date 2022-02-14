@@ -15,13 +15,6 @@ namespace CnD.Scripts.Bullet
         {
             _soBulletModel = bulletModel;
             _isEnemy = isEnemy;
-            ChangeBulletModel();
-        }
-
-        private void ChangeBulletModel()
-        {
-            gameObject.GetComponent<MeshRenderer>().material =
-                _soBulletModel.bulletGO.GetComponent<MeshRenderer>().sharedMaterials[0];
         }
         
         private void OnBecameInvisible()
