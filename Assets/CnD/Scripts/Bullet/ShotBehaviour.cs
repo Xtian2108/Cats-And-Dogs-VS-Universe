@@ -57,7 +57,7 @@ namespace CnD.Player.Bullet
                 for (int i = 0; i < amountShotPoint; i++)
                 {
                     GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
-                    SetTransformBullet(bullet,shotPoint[i].transform.position);
+                    SetTransformBullet(bullet,soBulletModel[i],shotPoint[i].transform.position);
                 }
                 
             }
@@ -70,15 +70,15 @@ namespace CnD.Player.Bullet
                 return;
             }
             GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
-            SetTransformBullet(bullet,shotPoint[0].transform.position);
+            SetTransformBullet(bullet,soBulletModel[0],shotPoint[0].transform.position);
         }
 
-        private void SetTransformBullet(GameObject bullet, Vector3 shotPosition)
+        private void SetTransformBullet(GameObject bullet, SOBulletModel SOBulletModel, Vector3 shotPosition)
         {
             bullet.SetActive(true);
             bullet.transform.position = shotPosition;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel[0], soActorModel.isEnemy);
+            bullet.GetComponent<BulletBehaviour>().Init(SOBulletModel, soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
