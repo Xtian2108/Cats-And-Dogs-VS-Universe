@@ -113,8 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soActorModel: {fileID: 11400000, guid: f86e33b8ea3b45447aa8753a06cba059, type: 2}
-  soBulletModel: {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
-  amountShotPoint: 1
+  amountShotPoint: 3
+  soBulletModel:
+  - {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
+  - {fileID: 11400000, guid: 5613a8186fc6fa4478e74dabfe85b442, type: 2}
+  - {fileID: 11400000, guid: 1116821ab7abd3446bb0fa51be320023, type: 2}
   shotPoint:
   - {fileID: 7550962879630953784}
   - {fileID: 7154169100764453150}

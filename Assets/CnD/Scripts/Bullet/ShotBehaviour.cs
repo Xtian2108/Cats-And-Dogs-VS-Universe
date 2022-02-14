@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CnD.ScriptableObjects;
 using CnD.Scripts.Bullet;
 using CnD.Scripts.Utilitaries;
@@ -10,8 +11,8 @@ namespace CnD.Player.Bullet
     public class ShotBehaviour : MonoBehaviour
     {
         public SOActorModel soActorModel;
-        public SOBulletModel soBulletModel;
-        private int amountShotPoint = 1;
+        [SerializeField]private int amountShotPoint = 1;
+        public List<SOBulletModel> soBulletModel = new List<SOBulletModel>();
         [SerializeField]private GameObject[] shotPoint;
         private BulletPoolContainer _bulletPoolContainer;
         public void OnEnable()
@@ -77,7 +78,7 @@ namespace CnD.Player.Bullet
             bullet.SetActive(true);
             bullet.transform.position = shotPosition;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel, soActorModel.isEnemy);
+            bullet.GetComponent<BulletBehaviour>().Init(soBulletModel[0], soActorModel.isEnemy);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }

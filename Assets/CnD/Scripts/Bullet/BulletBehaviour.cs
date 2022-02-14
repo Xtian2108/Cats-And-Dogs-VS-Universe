@@ -21,7 +21,7 @@ namespace CnD.Scripts.Bullet
         private void ChangeBulletModel()
         {
             gameObject.GetComponent<MeshRenderer>().material =
-                _soBulletModel.bulletTypes[_soBulletModel.currentType].GetComponent<MeshRenderer>().sharedMaterials[0];
+                _soBulletModel.bulletGO.GetComponent<MeshRenderer>().sharedMaterials[0];
         }
         
         private void OnBecameInvisible()

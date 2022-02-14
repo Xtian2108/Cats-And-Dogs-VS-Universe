@@ -12,7 +12,7 @@ namespace CnD.Scripts.Bullet
         
         public void Awake()
         {
-            bulletPool = new ObjectPool(soBulletModel.bulletTypes[soBulletModel.currentType], 60, transform.parent);
+            bulletPool = new ObjectPool(soBulletModel.bulletGO, 60, transform.parent);
         }
     }
 }

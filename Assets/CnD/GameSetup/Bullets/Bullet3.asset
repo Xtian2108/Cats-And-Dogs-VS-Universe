@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac773126e7c243b4b7e7ee4b9717cfc5, type: 3}
-  m_Name: Bullet
+  m_Name: Bullet3
   m_EditorClassIdentifier: 
   bulletGO: {fileID: 5732087749462713945, guid: c206c0e6b1b90a34a9e5d9dd0d83e7f4, type: 3}
   currentType: 0
