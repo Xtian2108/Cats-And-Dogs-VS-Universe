@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4254831724542706}
   - component: {fileID: 33636701486100218}
   - component: {fileID: 23108580484060614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyingInsects3_Wing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4072595153639120}
   - component: {fileID: 33486108100115706}
   - component: {fileID: 23116110202944804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyingInsects3_Wing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4501185454678114}
   - component: {fileID: 33059457709192364}
   - component: {fileID: 23864261778404826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyingInsects3_Wing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4993088256641462}
   - component: {fileID: 33090879432451406}
   - component: {fileID: 23583332831614426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyingInsects3_Wing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 7347370912203862474}
   - component: {fileID: 8366158069683270994}
   - component: {fileID: 8885082023120986080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flying Insect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soActorModel: {fileID: 11400000, guid: 20071598c264d974e9abb26ad3257848, type: 2}
+  amountShotPoint: 1
   soBulletModel:
   - {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
   shotPoint:
@@ -468,7 +469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 60709612501819153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,7 +28,12 @@ namespace CnD.Scripts.Bullet
         private void OnTriggerEnter(Collider other)
         {
             IActor actor = other.GetComponent<IActor>();
-            actor?.TakeDamage(_soBulletModel.hitPower);
+            if (actor != null)
+            {
+                actor?.TakeDamage(_soBulletModel.hitPower);
+                Destroy(other.gameObject);
+            }
+            
         }
     }
 }

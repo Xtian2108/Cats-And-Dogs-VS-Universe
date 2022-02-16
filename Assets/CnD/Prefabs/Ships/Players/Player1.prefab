@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3034940910006608465}
   - component: {fileID: 6062210612603493041}
   - component: {fileID: 328925309959699151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343148004677440492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6834325928346364456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6680212249954478188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
