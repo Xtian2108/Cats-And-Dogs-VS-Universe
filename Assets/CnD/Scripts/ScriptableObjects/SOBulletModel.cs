@@ -1,5 +1,6 @@
 using System;
 using CnD.Scripts.Bullet;
+using CnD.Scripts.Utilitaries;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,17 +15,47 @@ namespace CnD.ScriptableObjects
         public int speed;
         public int health;
         public int hitPower;
-        public bool _isEnemy;
+        [FormerlySerializedAs("_isEnemy")]
+        public bool isEnemy;
+
+        [ReadOnly][SerializeField]private BulletMovementType _bulletMovementType;
         
+
         public void BulletMovement(Transform transform)
         {
-            if (!_isEnemy)
+            switch (_bulletMovementType)
+            {
+                case BulletMovementType.Horizontal:
+                    HorizontalShoot(transform);
+                    break;
+                case BulletMovementType.Vertical:
+                    VerticalShoot(transform);
+                    break;
+            }
+            
+        }
+
+        private void HorizontalShoot(Transform transform)
+        {
+            if (!isEnemy)
             {
                 transform.position += transform.right * speed * Time.deltaTime;
             }
             else
             {
                 transform.position -= transform.right * speed * Time.deltaTime;
+            }
+        }
+        
+        private void VerticalShoot(Transform transform)
+        {
+            if (!isEnemy)
+            {
+                transform.position += transform.up * speed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position -= transform.up * speed * Time.deltaTime;
             }
         }
     }
