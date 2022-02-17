@@ -11,35 +11,31 @@ namespace CnD.ScriptableObjects
     {
         [FormerlySerializedAs("bulletTypes")]
         public GameObject bulletGO;
+
         public int currentType;
         public int speed;
         public int health;
         public int hitPower;
+
         [FormerlySerializedAs("_isEnemy")]
-        public bool isEnemy;
+        [ReadOnly]
+        [SerializeField]
+        private BulletMovementType _bulletMovementType;
 
-        [ReadOnly][SerializeField]private BulletMovementType _bulletMovementType;
-
-        public void SetLayer(GameObject gameObject)
-        {
-            gameObject.layer = LayerMask.NameToLayer(isEnemy ? "Enemy" : "Player");
-        }
-
-        public void BulletMovement(Transform transform)
+        public void BulletMovement(Transform transform, bool isEnemy)
         {
             switch (_bulletMovementType)
             {
                 case BulletMovementType.Horizontal:
-                    HorizontalShoot(transform);
+                    HorizontalShoot(transform,isEnemy);
                     break;
                 case BulletMovementType.Vertical:
-                    VerticalShoot(transform);
+                    VerticalShoot(transform, isEnemy);
                     break;
             }
-            
         }
 
-        private void HorizontalShoot(Transform transform)
+        private void HorizontalShoot(Transform transform, bool isEnemy)
         {
             if (!isEnemy)
             {
@@ -50,8 +46,8 @@ namespace CnD.ScriptableObjects
                 transform.position -= transform.right * speed * Time.deltaTime;
             }
         }
-        
-        private void VerticalShoot(Transform transform)
+
+        private void VerticalShoot(Transform transform, bool isEnemy)
         {
             if (!isEnemy)
             {

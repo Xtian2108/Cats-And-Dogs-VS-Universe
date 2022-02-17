@@ -9,11 +9,18 @@ namespace CnD.Scripts.Bullet
     public class BulletBehaviour : MonoBehaviour
     {
         private SOBulletModel _soBulletModel;
+        private bool isEnemy;
         
-        public void Init(SOBulletModel bulletModel)
+        public void Init(SOBulletModel bulletModel, SOActorModel soActorModel)
         {
             _soBulletModel = bulletModel;
-            _soBulletModel.SetLayer(gameObject);
+            isEnemy = soActorModel.isEnemy;
+            SetLayer();
+        }
+
+        private void SetLayer()
+        {
+            gameObject.layer = LayerMask.NameToLayer(isEnemy ? "Enemy" : "Player");
         }
         
         private void OnBecameInvisible()
@@ -23,7 +30,7 @@ namespace CnD.Scripts.Bullet
 
         void Update ()
         {
-            _soBulletModel.BulletMovement(transform);
+            _soBulletModel.BulletMovement(transform,isEnemy);
         }
 
         private void OnTriggerEnter(Collider other)

@@ -78,7 +78,7 @@ namespace CnD.Player.Bullet
             bullet.SetActive(true);
             bullet.transform.position = shotPosition;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            bullet.GetComponent<BulletBehaviour>().Init(SOBulletModel);
+            bullet.GetComponent<BulletBehaviour>().Init(SOBulletModel,soActorModel);
             bullet.transform.SetParent(transform.parent);
             bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
