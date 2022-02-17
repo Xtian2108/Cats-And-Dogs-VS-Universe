@@ -17,5 +17,4 @@ MonoBehaviour:
   speed: 10
   health: 1
   hitPower: 1
-  isEnemy: 0
   _bulletMovementType: 0
