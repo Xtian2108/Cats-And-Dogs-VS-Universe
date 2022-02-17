@@ -428,7 +428,7 @@ MonoBehaviour:
   soActorModel: {fileID: 11400000, guid: 20071598c264d974e9abb26ad3257848, type: 2}
   amountShotPoint: 1
   soBulletModel:
-  - {fileID: 11400000, guid: 35e1cac32990aee4b8c2f080d13ab01c, type: 2}
+  - {fileID: 11400000, guid: 900260d8d422e854b99e3311fbaec5eb, type: 2}
   shotPoint:
   - {fileID: 3203862377442471190}
 --- !u!54 &8366158069683270994

@@ -19,7 +19,11 @@ namespace CnD.ScriptableObjects
         public bool isEnemy;
 
         [ReadOnly][SerializeField]private BulletMovementType _bulletMovementType;
-        
+
+        public void SetLayer(GameObject gameObject)
+        {
+            gameObject.layer = LayerMask.NameToLayer(isEnemy ? "Enemy" : "Player");
+        }
 
         public void BulletMovement(Transform transform)
         {

@@ -13,6 +13,7 @@ namespace CnD.Scripts.Bullet
         public void Init(SOBulletModel bulletModel)
         {
             _soBulletModel = bulletModel;
+            _soBulletModel.SetLayer(gameObject);
         }
         
         private void OnBecameInvisible()
@@ -31,7 +32,7 @@ namespace CnD.Scripts.Bullet
             if (actor != null)
             {
                 actor?.TakeDamage(_soBulletModel.hitPower);
-                Destroy(other.gameObject);
+                gameObject.SetActive(false);
             }
             
         }
