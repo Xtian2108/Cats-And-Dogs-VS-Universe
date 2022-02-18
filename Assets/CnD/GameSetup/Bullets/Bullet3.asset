@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletGO: {fileID: 5732087749462713945, guid: c206c0e6b1b90a34a9e5d9dd0d83e7f4, type: 3}
   currentType: 0
-  speed: 15
+  speed: 60
   health: 1
   hitPower: 1
-  isEnemy: 0
-  _bulletMovementType: 1

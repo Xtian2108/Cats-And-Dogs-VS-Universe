@@ -17,6 +17,7 @@ MonoBehaviour:
   shield: 2
   maxShield: 5
   name: 
+  fireRate: 0.19
   ActorGO: {fileID: 3034940910006608462, guid: 0cc5b885ed160214db1a3fda53b0c844, type: 3}
   isEnemy: 0
   verticalSpeed: 1

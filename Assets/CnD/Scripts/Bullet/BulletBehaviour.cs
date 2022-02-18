@@ -10,7 +10,16 @@ namespace CnD.Scripts.Bullet
     {
         private SOBulletModel _soBulletModel;
         private bool isEnemy;
+        private BulletMovementType _bulletMovementType;
+        private VerticalBullet _verticalBullet;
+        private HorizontalBullet _horizontalBullet;
         
+        private void Start()
+        {
+            _verticalBullet = gameObject.AddComponent<VerticalBullet>();
+            _horizontalBullet = gameObject.AddComponent<HorizontalBullet>();
+        }
+
         public void Init(SOBulletModel bulletModel, SOActorModel soActorModel)
         {
             _soBulletModel = bulletModel;
@@ -28,9 +37,22 @@ namespace CnD.Scripts.Bullet
             gameObject.SetActive(false);
         }
 
-        void Update ()
+        void FixedUpdate()
         {
-            _soBulletModel.BulletMovement(transform,isEnemy);
+            BulletMovement();
+        }
+
+        private void BulletMovement()
+        {
+            switch (_bulletMovementType)
+            {
+                case BulletMovementType.Horizontal:
+                    _horizontalBullet.Shoot(transform,_soBulletModel.speed,isEnemy);
+                    break;
+                case BulletMovementType.Vertical:
+                    _verticalBullet.Shoot(transform,_soBulletModel.speed,isEnemy);
+                    break;
+            }
         }
 
         private void OnTriggerEnter(Collider other)

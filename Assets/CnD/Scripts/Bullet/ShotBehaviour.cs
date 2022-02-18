@@ -15,6 +15,7 @@ namespace CnD.Player.Bullet
         public List<SOBulletModel> soBulletModel = new List<SOBulletModel>();
         [SerializeField]private GameObject[] shotPoint;
         private BulletPoolContainer _bulletPoolContainer;
+        private float nextFire;
         public void OnEnable()
         {
             Init();
@@ -52,14 +53,14 @@ namespace CnD.Player.Bullet
                 return;
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 for (int i = 0; i < amountShotPoint; i++)
                 {
+                    nextFire = Time.time + soActorModel.fireRate;
                     GameObject bullet = _bulletPoolContainer.bulletPool.GetObject();
                     SetTransformBullet(bullet,soBulletModel[i],shotPoint[i].transform.position);
                 }
-                
             }
         }
 

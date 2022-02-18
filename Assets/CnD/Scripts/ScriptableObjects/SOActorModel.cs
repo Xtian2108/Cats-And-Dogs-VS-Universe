@@ -11,6 +11,7 @@ namespace CnD.ScriptableObjects
         public int shield;
         public int maxShield = 5;
         public string name;
+        public float fireRate;
         [FormerlySerializedAs("shipGO")]
         public GameObject ActorGO;
         public bool isEnemy;

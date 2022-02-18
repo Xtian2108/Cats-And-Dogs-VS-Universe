@@ -16,47 +16,6 @@ namespace CnD.ScriptableObjects
         public int speed;
         public int health;
         public int hitPower;
-
-        [FormerlySerializedAs("_isEnemy")]
-        [ReadOnly]
-        [SerializeField]
-        private BulletMovementType _bulletMovementType;
-
-        public void BulletMovement(Transform transform, bool isEnemy)
-        {
-            switch (_bulletMovementType)
-            {
-                case BulletMovementType.Horizontal:
-                    HorizontalShoot(transform,isEnemy);
-                    break;
-                case BulletMovementType.Vertical:
-                    VerticalShoot(transform, isEnemy);
-                    break;
-            }
-        }
-
-        private void HorizontalShoot(Transform transform, bool isEnemy)
-        {
-            if (!isEnemy)
-            {
-                transform.position += transform.right * speed * Time.deltaTime;
-            }
-            else
-            {
-                transform.position -= transform.right * speed * Time.deltaTime;
-            }
-        }
-
-        private void VerticalShoot(Transform transform, bool isEnemy)
-        {
-            if (!isEnemy)
-            {
-                transform.position += transform.up * speed * Time.deltaTime;
-            }
-            else
-            {
-                transform.position -= transform.up * speed * Time.deltaTime;
-            }
-        }
+        
     }
 }
